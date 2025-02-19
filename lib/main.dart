@@ -10,6 +10,7 @@ import 'package:agri_connect/data/repositories/product_repository.dart';
 import 'package:agri_connect/data/repositories/shop_repository.dart';
 import 'package:agri_connect/data/services/api_service.dart';
 import 'package:agri_connect/provider/farmer_provider.dart';
+import 'package:agri_connect/provider/news_provider.dart';
 import 'package:agri_connect/provider/product_cart_provider.dart';
 import 'package:agri_connect/utils/global_contants.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +52,7 @@ void main() async {
 
   runApp(
     MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => NewsProvider()),
       ChangeNotifierProvider(create: (context) => FarmerProvider()),
       ChangeNotifierProvider(create: (context) => ProductCartProvider()),
     ], child: MyApp()),
