@@ -1,7 +1,6 @@
 import 'package:agri_connect/custom.dart';
 import 'package:agri_connect/data/controllers/product_controller.dart';
 import 'package:agri_connect/product_cart_page.dart';
-import 'package:agri_connect/shop_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +8,9 @@ import 'provider/product_cart_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  final Product product;
   ProductDetailPage({super.key, required this.product});
+
+  final product;
 
   @override
   State<ProductDetailPage> createState() => _ProductDetailPageState();

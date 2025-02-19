@@ -414,7 +414,7 @@ class ProductList extends StatelessWidget {
 
 class Product {
   final String name;
-  final double price;
+  final int price;
   final String description;
   final String image;
   final int stock;

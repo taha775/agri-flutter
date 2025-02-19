@@ -1,6 +1,7 @@
 import 'package:agri_connect/data/controllers/product_controller.dart';
 import 'package:agri_connect/data/models/ProductModel.dart';
 import 'package:agri_connect/product_detail_page.dart';
+import 'package:agri_connect/shop_page.dart';
 import 'package:agri_connect/shop_profile.dart';
 import 'package:agri_connect/utils/cloudinary_service.dart';
 import 'package:flutter/material.dart';
@@ -153,8 +154,25 @@ class _AddProductState extends State<AddProduct> {
                     child: GestureDetector(
                       onTap: () {
                         print("Testing");
-                        MaterialPageRoute(
-                            builder: (context) => ProductDetailPage());
+                        var productModel = Product(
+                          id: product['_id'],
+                          name: product['name'],
+                          description: product['description'],
+                          price: product['price'],
+                          stock: product['stock'],
+                          image: product['image'],
+                        );
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage(
+                              product: productModel,
+                            ),
+                          ),
+                        );
+
+                        print("productModel: $productModel");
                       },
                       child: ListTile(
                         leading: CircleAvatar(

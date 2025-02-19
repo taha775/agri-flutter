@@ -1,4 +1,5 @@
 import 'package:agri_connect/custom.dart';
+import 'package:agri_connect/data/models/ProductCardModel.dart';
 import 'package:agri_connect/provider/product_cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -74,7 +75,7 @@ class ProductList extends StatelessWidget {
                           children: [
                             ElevatedButton(
                               onPressed: () {
-                                final currentProduct = Product(
+                                final currentProduct = ProductCardModel(
                                   name: product['name'],
                                   price: product['price'].toDouble(),
                                   description: product['description'],
@@ -92,7 +93,7 @@ class ProductList extends StatelessWidget {
                                 backgroundColor: CustomColor.greenTextColor,
                               ),
                               child: Text(
-                                cartProvider.items.contains(Product(
+                                cartProvider.items.contains(ProductCardModel(
                                         name: product['name'],
                                         price: product['price'].toDouble(),
                                         description: product['description'],
@@ -115,42 +116,5 @@ class ProductList extends StatelessWidget {
         );
       },
     );
-  }
-}
-
-class Product {
-  final String name;
-  final double price;
-  final String description;
-  final String image;
-  final int stock;
-
-  Product({
-    required this.name,
-    required this.price,
-    required this.description,
-    required this.image,
-    required this.stock,
-  });
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Product &&
-        other.name == name &&
-        other.price == price &&
-        other.description == description &&
-        other.image == image &&
-        other.stock == stock;
-  }
-
-  @override
-  int get hashCode {
-    return name.hashCode ^
-        price.hashCode ^
-        description.hashCode ^
-        image.hashCode ^
-        stock.hashCode;
   }
 }
