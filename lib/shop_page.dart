@@ -311,7 +311,7 @@ class ProductList extends StatelessWidget {
                 builder: (context) => ProductDetailPage(
                   product: Product(
                     name: product['name'] ?? "no name",
-                    price: product['price'].toDouble() ?? "no name",
+                    price: product['price']?? "no name",
                     description: product['description'] ?? "no name",
                     image: product['image'] ?? "no name",
                     stock: product['stock'] ?? "no name",
@@ -379,7 +379,7 @@ class ProductList extends StatelessWidget {
                                     final productItem = Product(
                                       id: product['id'],
                                       name: product['name'],
-                                      price: product['price'].toDouble(),
+                                      price: product['price'],
                                       description: product['description'],
                                       image: product['image'],
                                       stock: product['stock'],

@@ -124,7 +124,7 @@ class _AgriDetectionPageState extends State<AgriDetectionPage> {
     setState(() => _isLoading = true);
 
     try {
-      final uri = Uri.parse('http://192.168.10.3:8000/predict');
+      final uri = Uri.parse('http://172.16.49.17:8000/predict');
       var request = http.MultipartRequest('POST', uri)
         ..files.add(await http.MultipartFile.fromPath(
           'file',
